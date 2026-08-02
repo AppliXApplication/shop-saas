@@ -1,0 +1,52 @@
+:root {
+  /* --- Палитра: касса/чек/ценник --- */
+  --color-ledger-900: #16302A;   /* глубокий бутылочно-зелёный — основной тёмный */
+  --color-ledger-700: #1F4038;
+  --color-paper: #F6F1E4;         /* тёплая кремовая "бумага чека" */
+  --color-paper-dim: #EDE6D3;
+  --color-ink: #1C231F;           /* почти чёрный, но с зелёным подтоном — текст */
+  --color-ink-soft: #5B655D;
+  --color-amber: #E3A438;         /* акцент — маркер на ценнике */
+  --color-amber-dark: #C7862A;
+  --color-error: #B4432E;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --radius-card: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-ledger-900);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Видимый фокус для клавиатурной навигации — не убираем outline, только стилизуем */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

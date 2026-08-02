@@ -1,0 +1,36 @@
+services:
+  app:
+    build: ./backend
+    container_name: shop-app
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    expose:
+      - "8080"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    container_name: shop-nginx
+    restart: unless-stopped
+    depends_on:
+      - app
+    # Порты наружу НЕ публикуем — 80/443 уже занят общим Caddy на этом сервере.
+    # Caddy достучится до нас по имени контейнера через общую сеть ниже.
+    expose:
+      - "80"
+    networks:
+      - default
+      - caddy_net
+
+networks:
+  default:
+  caddy_net:
+    external: true
+    name: newsbot-backend_default

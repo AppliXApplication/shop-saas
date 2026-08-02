@@ -1,0 +1,29 @@
+.switcher {
+  display: flex;
+  gap: 4px;
+}
+
+.langBtn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.langBtn:hover {
+  opacity: 0.85;
+}
+
+.langBtnActive {
+  opacity: 1;
+  border-color: var(--color-amber);
+  color: var(--color-amber);
+}

@@ -1,0 +1,199 @@
+.screen {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(227, 164, 56, 0.08), transparent 40%),
+    var(--color-ledger-900);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Едва заметная текстура — линии как в гроссбухе */
+.screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    rgba(246, 241, 228, 0.035) 28px
+  );
+  pointer-events: none;
+}
+
+.brand {
+  position: absolute;
+  top: 36px;
+  left: 40px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--color-paper);
+  z-index: 1;
+}
+
+.brandMark {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-amber);
+  letter-spacing: 0.08em;
+  border: 1px solid var(--color-amber-dark);
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+}
+
+.langSwitcherWrap {
+  position: absolute;
+  top: 36px;
+  right: 40px;
+  color: var(--color-paper);
+  z-index: 1;
+}
+
+.ticket {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  z-index: 1;
+}
+
+.ticketBody {
+  background: var(--color-paper);
+  padding: 40px 36px 30px;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.55);
+}
+
+/* Рваный/перфорированный нижний край — как оторванный чек */
+.ticketTear {
+  height: 16px;
+  background: var(--color-paper);
+  -webkit-mask-image: radial-gradient(circle at 8px 0, transparent 8px, black 8.5px);
+  mask-image: radial-gradient(circle at 8px 0, transparent 8px, black 8.5px);
+  -webkit-mask-size: 16px 16px;
+  mask-size: 16px 16px;
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed var(--color-paper-dim);
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--color-ink);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+  line-height: 1.5;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-bottom: 7px;
+}
+
+.input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1.5px solid var(--color-paper-dim);
+  border-radius: 3px;
+  background: #fff;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-ink);
+  transition: border-color 0.15s ease;
+}
+
+.input:hover {
+  border-color: #c9c0a3;
+}
+
+.input:focus {
+  border-color: var(--color-amber);
+}
+
+.submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px;
+  background: var(--color-ledger-900);
+  color: var(--color-paper);
+  border: none;
+  border-radius: 3px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--color-ledger-700);
+}
+
+.submit:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.error {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: rgba(180, 67, 46, 0.08);
+  border: 1px solid rgba(180, 67, 46, 0.25);
+  border-radius: 3px;
+  color: var(--color-error);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: rgba(246, 241, 228, 0.45);
+  letter-spacing: 0.04em;
+}

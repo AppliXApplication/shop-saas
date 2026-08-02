@@ -1,0 +1,57 @@
+{
+  "login": {
+    "eyebrow": "Sign in",
+    "title": "Welcome back",
+    "subtitle": "Sign in with your login to open the shift and reports.",
+    "loginLabel": "Login",
+    "passwordLabel": "Password",
+    "submit": "Sign in",
+    "submitting": "Checking…",
+    "footer": "shop-saas · secure connection"
+  },
+  "residue": {
+    "title": "Stock levels",
+    "searchPlaceholder": "Search by name…",
+    "allCategories": "All categories",
+    "sumLabel": "Stock value:",
+    "columns": {
+      "name": "Item",
+      "code": "Code",
+      "category": "Category",
+      "residue": "Stock",
+      "price": "Price"
+    },
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "adminOnlyHint": "Only an administrator can edit",
+    "empty": "No items found",
+    "loading": "Loading…",
+    "saved": "Saved"
+  },
+  "card": {
+    "back": "Back to list",
+    "eyebrow": "Item card",
+    "titleEdit": "Edit item",
+    "titleView": "Item details",
+    "name": "Name",
+    "code": "Code",
+    "category": "Category",
+    "residue": "Stock",
+    "price": "Price",
+    "priceOpt": "Wholesale price",
+    "marking": "Marking"
+  },
+  "nav": {
+    "logout": "Log out",
+    "loggedInAs": "Signed in as"
+  },
+  "errors": {
+    "invalidCredentials": "Invalid login or password",
+    "loginFailed": "Sign-in failed. Please try again.",
+    "sessionExpired": "Session expired, please sign in again",
+    "loadFailed": "Failed to load data",
+    "saveFailed": "Failed to save changes",
+    "forbidden": "You don't have permission to do this"
+  }
+}

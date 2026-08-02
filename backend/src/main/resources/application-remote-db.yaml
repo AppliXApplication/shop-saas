@@ -1,0 +1,27 @@
+# Активируется флагом: --spring.profiles.active=remote-db
+# Хост/логин/пароль передаются через переменные окружения, не хардкодим их в файле.
+#
+# Пример запуска из IntelliJ:
+#   Run Configuration -> Environment variables:
+#     DB_HOST=<ip или домен вашего БД-сервера>
+#     DB_PORT=3306
+#     DB_NAME=<имя базы>
+#     DB_USER=<пользователь с правами только на чтение, если возможно>
+#     DB_PASSWORD=<пароль>
+#   Active profiles: remote-db
+#
+# ВАЖНО: заведите на сервере отдельного read-only пользователя MySQL для этого
+# профиля (GRANT SELECT ON shop_saas.* TO 'readonly_user'@'%';), чтобы даже
+# случайная ошибка в коде не могла ничего изменить в проде.
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  flyway:
+    # Пока мы только читаем данные из существующей удалённой БД, Flyway вообще
+    # не должен ничего выполнять. enabled=false гарантирует: ни один SQL-скрипт
+    # из db/migration (включая DROP TABLE из легаси-дампа) не будет запущен —
+    # физически, а не потому что мы понадеялись на baseline-логику.
+    enabled: false

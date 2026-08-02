@@ -1,0 +1,57 @@
+{
+  "login": {
+    "eyebrow": "Iniciar sesión",
+    "title": "Bienvenido de nuevo",
+    "subtitle": "Inicia sesión con tu usuario para abrir el turno y los informes.",
+    "loginLabel": "Usuario",
+    "passwordLabel": "Contraseña",
+    "submit": "Entrar",
+    "submitting": "Comprobando…",
+    "footer": "shop-saas · conexión segura"
+  },
+  "residue": {
+    "title": "Existencias",
+    "searchPlaceholder": "Buscar por nombre…",
+    "allCategories": "Todas las categorías",
+    "sumLabel": "Valor de existencias:",
+    "columns": {
+      "name": "Producto",
+      "code": "Código",
+      "category": "Categoría",
+      "residue": "Existencia",
+      "price": "Precio"
+    },
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "adminOnlyHint": "Solo un administrador puede editar",
+    "empty": "No se encontraron productos",
+    "loading": "Cargando…",
+    "saved": "Guardado"
+  },
+  "card": {
+    "back": "Volver a la lista",
+    "eyebrow": "Ficha del producto",
+    "titleEdit": "Editar producto",
+    "titleView": "Detalles del producto",
+    "name": "Nombre",
+    "code": "Código",
+    "category": "Categoría",
+    "residue": "Existencia",
+    "price": "Precio",
+    "priceOpt": "Precio mayorista",
+    "marking": "Marcado"
+  },
+  "nav": {
+    "logout": "Cerrar sesión",
+    "loggedInAs": "Sesión iniciada como"
+  },
+  "errors": {
+    "invalidCredentials": "Usuario o contraseña incorrectos",
+    "loginFailed": "No se pudo iniciar sesión. Inténtalo de nuevo.",
+    "sessionExpired": "La sesión ha caducado, inicia sesión de nuevo",
+    "loadFailed": "No se pudieron cargar los datos",
+    "saveFailed": "No se pudieron guardar los cambios",
+    "forbidden": "No tienes permiso para hacer esto"
+  }
+}

@@ -1,0 +1,22 @@
+# --- Секреты, никогда не коммитим ---
+.env.prod
+.env
+.env.local
+backend/key.key
+
+# --- Backend (Java/Maven) ---
+backend/target/
+
+# --- Frontend (Node) ---
+frontend/node_modules/
+frontend/dist/
+frontend/*.log
+
+# --- IDE ---
+.idea/
+*.iml
+.vscode/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
