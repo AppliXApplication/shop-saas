@@ -144,6 +144,7 @@ export default function ResiduePage() {
           <h1 className={styles.title}>{t('residue.title')}</h1>
         </div>
         <div className={styles.headerRight}>
+          <Link className={styles.navLink} to="/cashier">{t('residue.toCashier')}</Link>
           <LanguageSwitcher />
           <span className={styles.userInfo}>
             {t('nav.loggedInAs')}: {getRole()}

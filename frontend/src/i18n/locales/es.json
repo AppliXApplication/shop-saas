@@ -11,6 +11,7 @@
   },
   "residue": {
     "title": "Existencias",
+    "toCashier": "Informes de caja →",
     "searchPlaceholder": "Buscar por nombre…",
     "allCategories": "Todas las categorías",
     "sumLabel": "Valor de existencias:",
@@ -28,6 +29,24 @@
     "empty": "No se encontraron productos",
     "loading": "Cargando…",
     "saved": "Guardado"
+  },
+  "cashier": {
+    "title": "Turnos de caja del día",
+    "toResidue": "← Existencias",
+    "today": "Hoy",
+    "empty": "No se encontraron turnos para esta fecha",
+    "columns": {
+      "time": "Hora",
+      "cashier": "Cajero",
+      "cashMustBe": "Debe haber en caja",
+      "cashIn": "Ingreso",
+      "cashOut": "Retiro",
+      "arrival": "Recepción",
+      "writeoff": "Baja"
+    },
+    "totals": {
+      "shifts": "Turnos hoy"
+    }
   },
   "card": {
     "back": "Volver a la lista",

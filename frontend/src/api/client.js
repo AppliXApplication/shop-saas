@@ -80,6 +80,18 @@ export async function fetchCategories() {
   return response.json()
 }
 
+export async function fetchCaseRecordReport(date) {
+  const params = new URLSearchParams()
+  if (date) params.set('date', date) // формат YYYY-MM-DD
+  const response = await fetch(`/api/reports/case-record?${params}`, { headers: authHeaders() })
+  if (response.status === 401) {
+    throw new Error('errors.sessionExpired')
+  }
+  if (!response.ok) {
+    throw new Error('errors.loadFailed')
+  }
+  return response.json()
+}
 export async function fetchGoodsDetail(id) {
   const response = await fetch(`/api/goods/${id}`, { headers: authHeaders() })
   if (response.status === 401) {

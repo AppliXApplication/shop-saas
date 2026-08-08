@@ -11,6 +11,7 @@
   },
   "residue": {
     "title": "Stock levels",
+    "toCashier": "Cashier reports →",
     "searchPlaceholder": "Search by name…",
     "allCategories": "All categories",
     "sumLabel": "Stock value:",
@@ -28,6 +29,24 @@
     "empty": "No items found",
     "loading": "Loading…",
     "saved": "Saved"
+  },
+  "cashier": {
+    "title": "Daily cashier shifts",
+    "toResidue": "← Stock levels",
+    "today": "Today",
+    "empty": "No shifts found for this date",
+    "columns": {
+      "time": "Time",
+      "cashier": "Cashier",
+      "cashMustBe": "Expected in drawer",
+      "cashIn": "Cash in",
+      "cashOut": "Cash out",
+      "arrival": "Delivery",
+      "writeoff": "Write-off"
+    },
+    "totals": {
+      "shifts": "Shifts today"
+    }
   },
   "card": {
     "back": "Back to list",

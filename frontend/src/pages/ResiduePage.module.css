@@ -48,6 +48,20 @@
   color: rgba(246, 241, 228, 0.6);
 }
 
+.navLink {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-paper);
+  text-decoration: none;
+  opacity: 0.75;
+  border-bottom: 1px dashed transparent;
+}
+
+.navLink:hover {
+  opacity: 1;
+  border-bottom-color: var(--color-amber);
+}
+
 .logoutBtn {
   font-family: var(--font-mono);
   font-size: 12px;
