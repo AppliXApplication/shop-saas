@@ -11,7 +11,8 @@ public interface CaseRecordRepository extends JpaRepository<CaseRecord, Long> {
 
     @Query("""
             select new com.applix.shop.cashier.CaseRecordRow(
-                cr.id, cr.date, u.login, cr.cashMustBe,
+                cr.id, cr.date, u.login,
+                coalesce(ci.note, co.note, a.note, w.note),
                 ci.sumCash, co.sumCash, a.sumInvoice, w.sum
             )
             from CaseRecord cr
@@ -27,7 +28,6 @@ public interface CaseRecordRepository extends JpaRepository<CaseRecord, Long> {
 
     @Query("""
             select new com.applix.shop.cashier.CaseRecordDailyTotals(
-                coalesce(sum(cr.cashMustBe), 0),
                 coalesce(sum(ci.sumCash), 0),
                 coalesce(sum(co.sumCash), 0),
                 coalesce(sum(a.sumInvoice), 0),

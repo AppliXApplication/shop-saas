@@ -195,6 +195,12 @@ tbody td {
   white-space: nowrap;
 }
 
+.description {
+  white-space: normal;
+  max-width: 320px;
+  color: var(--color-ink-soft);
+}
+
 td.mono {
   font-family: var(--font-mono);
 }

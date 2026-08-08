@@ -25,4 +25,7 @@ public class Writeoff {
 
     @Column(name = "sum")
     private BigDecimal sum;
+
+    @Column(name = "note")
+    private String note;
 }

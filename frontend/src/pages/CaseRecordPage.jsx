@@ -113,10 +113,6 @@ export default function CaseRecordPage() {
               <span className={styles.totalValue}>{totals.recordCount}</span>
             </div>
             <div className={styles.totalCell}>
-              <span className={styles.totalLabel}>{t('cashier.columns.cashMustBe')}</span>
-              <span className={styles.totalValue}>{totals.cashMustBeTotal}</span>
-            </div>
-            <div className={styles.totalCell}>
               <span className={styles.totalLabel}>{t('cashier.columns.cashIn')}</span>
               <span className={styles.totalValue}>{totals.cashInTotal}</span>
             </div>
@@ -148,7 +144,7 @@ export default function CaseRecordPage() {
                 <tr>
                   <th>{t('cashier.columns.time')}</th>
                   <th>{t('cashier.columns.cashier')}</th>
-                  <th className={styles.numeric}>{t('cashier.columns.cashMustBe')}</th>
+                  <th>{t('cashier.columns.description')}</th>
                   <th className={styles.numeric}>{t('cashier.columns.cashIn')}</th>
                   <th className={styles.numeric}>{t('cashier.columns.cashOut')}</th>
                   <th className={styles.numeric}>{t('cashier.columns.arrival')}</th>
@@ -160,7 +156,7 @@ export default function CaseRecordPage() {
                   <tr key={row.id}>
                     <td className={styles.mono}>{fmtTime(row.date)}</td>
                     <td>{row.cashierLogin ?? '—'}</td>
-                    <td className={`${styles.mono} ${styles.numeric}`}>{fmtNum(row.cashMustBe)}</td>
+                    <td className={styles.description}>{row.description ?? '—'}</td>
                     <td className={`${styles.mono} ${styles.numeric}`}>{fmtNum(row.cashInSum)}</td>
                     <td className={`${styles.mono} ${styles.numeric}`}>{fmtNum(row.cashOutSum)}</td>
                     <td className={`${styles.mono} ${styles.numeric}`}>{fmtNum(row.arrivalSum)}</td>

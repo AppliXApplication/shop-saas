@@ -38,7 +38,7 @@
     "columns": {
       "time": "Hora",
       "cashier": "Cajero",
-      "cashMustBe": "Debe haber en caja",
+      "description": "Descripción",
       "cashIn": "Ingreso",
       "cashOut": "Retiro",
       "arrival": "Recepción",

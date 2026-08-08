@@ -38,7 +38,7 @@
     "columns": {
       "time": "Time",
       "cashier": "Cashier",
-      "cashMustBe": "Expected in drawer",
+      "description": "Description",
       "cashIn": "Cash in",
       "cashOut": "Cash out",
       "arrival": "Delivery",

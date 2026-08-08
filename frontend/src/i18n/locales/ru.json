@@ -38,7 +38,7 @@
     "columns": {
       "time": "Время",
       "cashier": "Кассир",
-      "cashMustBe": "Должно быть в кассе",
+      "description": "Описание",
       "cashIn": "Внесение",
       "cashOut": "Изъятие",
       "arrival": "Приход",

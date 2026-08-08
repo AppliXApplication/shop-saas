@@ -31,4 +31,7 @@ public class Arrival {
 
     @Column(name = "number_waybill")
     private String numberWaybill;
+
+    @Column(name = "note")
+    private String note;
 }
