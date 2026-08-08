@@ -46,6 +46,13 @@
     },
     "totals": {
       "shifts": "Shifts today"
+    },
+    "sales": {
+      "title": "Sales today",
+      "revenue": "Revenue",
+      "goodsValue": "Goods value",
+      "cash": "Cash",
+      "cashless": "Cashless"
     }
   },
   "card": {

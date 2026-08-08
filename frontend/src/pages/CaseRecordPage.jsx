@@ -71,6 +71,7 @@ export default function CaseRecordPage() {
 
   const rows = data?.rows ?? null
   const totals = data?.totals
+  const sales = data?.salesSummary
 
   return (
     <div className={styles.page}>
@@ -105,6 +106,27 @@ export default function CaseRecordPage() {
             {t('cashier.today')}
           </button>
         </div>
+
+        {sales && (
+          <div className={styles.salesSummary}>
+            <div className={styles.salesCell}>
+              <span className={styles.salesLabel}>{t('cashier.sales.revenue')}</span>
+              <span className={styles.salesValue}>{sales.revenue}</span>
+            </div>
+            <div className={styles.salesCell}>
+              <span className={styles.salesLabel}>{t('cashier.sales.goodsValue')}</span>
+              <span className={styles.salesValue}>{sales.goodsValue}</span>
+            </div>
+            <div className={styles.salesCell}>
+              <span className={styles.salesLabel}>{t('cashier.sales.cash')}</span>
+              <span className={styles.salesValue}>{sales.cashSum}</span>
+            </div>
+            <div className={styles.salesCell}>
+              <span className={styles.salesLabel}>{t('cashier.sales.cashless')}</span>
+              <span className={styles.salesValue}>{sales.cashlessSum}</span>
+            </div>
+          </div>
+        )}
 
         {totals && (
           <div className={styles.totals}>

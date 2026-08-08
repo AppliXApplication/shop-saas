@@ -133,6 +133,36 @@
   border-bottom: 1px dashed var(--color-paper-dim);
 }
 
+.salesSummary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--color-ledger-700);
+  border-bottom: 1px dashed var(--color-paper-dim);
+}
+
+.salesCell {
+  background: var(--color-ledger-900);
+  padding: 18px 22px;
+}
+
+.salesValue {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-amber);
+}
+
+.salesLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 228, 0.55);
+  display: block;
+  margin-bottom: 5px;
+}
+
 .totalCell {
   background: var(--color-paper);
   padding: 14px 20px;

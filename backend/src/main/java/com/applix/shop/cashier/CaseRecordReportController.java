@@ -15,9 +15,10 @@ import java.util.List;
 public class CaseRecordReportController {
 
     private final CaseRecordRepository caseRecordRepository;
+    private final CheckRepository checkRepository;
 
     /**
-     * Дневной отчёт по кассовым сменам. Без параметра date — сегодняшний день.
+     * Дневной отчёт по кассовым сменам + сводка по продажам. Без параметра date — сегодня.
      * GET /api/reports/case-record?date=2026-08-02
      */
     @GetMapping("/api/reports/case-record")
@@ -31,6 +32,14 @@ public class CaseRecordReportController {
         List<CaseRecordRow> rows = caseRecordRepository.findByDateRange(from, to);
         CaseRecordDailyTotals totals = caseRecordRepository.sumByDateRange(from, to);
 
-        return new CaseRecordReportResponse(targetDate, rows, totals);
+        DailySalesSummary salesSummary = new DailySalesSummary(
+                checkRepository.sumRevenue(from, to),
+                checkRepository.sumGoodsValue(from, to),
+                checkRepository.sumCash(from, to),
+                checkRepository.sumCashless(from, to)
+        );
+
+        return new CaseRecordReportResponse(targetDate, rows, totals, salesSummary);
     }
 }
+

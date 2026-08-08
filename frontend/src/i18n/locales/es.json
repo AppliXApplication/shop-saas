@@ -46,6 +46,13 @@
     },
     "totals": {
       "shifts": "Turnos hoy"
+    },
+    "sales": {
+      "title": "Ventas de hoy",
+      "revenue": "Ingresos",
+      "goodsValue": "Valor en mercancía",
+      "cash": "Efectivo",
+      "cashless": "Sin efectivo"
     }
   },
   "card": {
