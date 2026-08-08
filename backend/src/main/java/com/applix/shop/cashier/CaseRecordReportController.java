@@ -1,5 +1,6 @@
 package com.applix.shop.cashier;
 
+import com.applix.shop.goods.GoodsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ public class CaseRecordReportController {
 
     private final CaseRecordRepository caseRecordRepository;
     private final CheckRepository checkRepository;
+    private final GoodsRepository goodsRepository;
 
     /**
      * Дневной отчёт по кассовым сменам + сводка по продажам. Без параметра date — сегодня.
@@ -34,7 +36,11 @@ public class CaseRecordReportController {
 
         DailySalesSummary salesSummary = new DailySalesSummary(
                 checkRepository.sumRevenue(from, to),
-                checkRepository.sumGoodsValue(from, to),
+                // "Сумма в товаре" — текущая стоимость остатков (residue*price по всем
+                // товарам), тот же расчёт, что и на странице "Остатки товаров". Это
+                // снимок на текущий момент, а не исторический показатель за дату отчёта —
+                // в goods нет привязки остатка к дате.
+                goodsRepository.sumResidueValue(null),
                 checkRepository.sumCash(from, to),
                 checkRepository.sumCashless(from, to)
         );
@@ -42,4 +48,5 @@ public class CaseRecordReportController {
         return new CaseRecordReportResponse(targetDate, rows, totals, salesSummary);
     }
 }
+
 
