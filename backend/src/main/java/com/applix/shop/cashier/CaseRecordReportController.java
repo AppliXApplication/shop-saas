@@ -34,6 +34,11 @@ public class CaseRecordReportController {
         List<CaseRecordRow> rows = caseRecordRepository.findByDateRange(from, to);
         CaseRecordDailyTotals totals = caseRecordRepository.sumByDateRange(from, to);
 
+        // Наличные = нал по чекам + внесение (cash_in) - изъятие (cash_out) за день.
+        java.math.BigDecimal cashSum = checkRepository.sumCash(from, to)
+                .add(totals.cashInTotal())
+                .subtract(totals.cashOutTotal());
+
         DailySalesSummary salesSummary = new DailySalesSummary(
                 checkRepository.sumRevenue(from, to),
                 // "Сумма в товаре" — текущая стоимость остатков (residue*price по всем
@@ -41,7 +46,7 @@ public class CaseRecordReportController {
                 // снимок на текущий момент, а не исторический показатель за дату отчёта —
                 // в goods нет привязки остатка к дате.
                 goodsRepository.sumResidueValue(null),
-                checkRepository.sumCash(from, to),
+                cashSum,
                 checkRepository.sumCashless(from, to)
         );
 
