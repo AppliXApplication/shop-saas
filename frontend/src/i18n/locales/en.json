@@ -52,7 +52,8 @@
       "revenue": "Revenue",
       "goodsValue": "Goods value",
       "cash": "Cash",
-      "cashless": "Cashless"
+      "cashless": "Cashless",
+      "spare": "Cash surplus"
     }
   },
   "card": {

@@ -125,6 +125,12 @@ export default function CaseRecordPage() {
               <span className={styles.salesLabel}>{t('cashier.sales.cashless')}</span>
               <span className={styles.salesValue}>{sales.cashlessSum}</span>
             </div>
+            {sales.spare !== null && sales.spare !== undefined && (
+              <div className={styles.salesCell}>
+                <span className={styles.salesLabel}>{t('cashier.sales.spare')}</span>
+                <span className={styles.salesValue}>{sales.spare}</span>
+              </div>
+            )}
           </div>
         )}
 

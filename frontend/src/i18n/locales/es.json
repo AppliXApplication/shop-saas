@@ -52,7 +52,8 @@
       "revenue": "Ingresos",
       "goodsValue": "Valor en mercancía",
       "cash": "Efectivo",
-      "cashless": "Sin efectivo"
+      "cashless": "Sin efectivo",
+      "spare": "Sobrante de caja"
     }
   },
   "card": {
