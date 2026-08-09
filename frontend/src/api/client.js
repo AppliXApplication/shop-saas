@@ -92,6 +92,20 @@ export async function fetchCaseRecordReport(date) {
   }
   return response.json()
 }
+export async function fetchGeneralReport(from, to, categoryId, page = 0, size = 50) {
+  const params = new URLSearchParams({ page: String(page), size: String(size) })
+  if (from) params.set('from', from)
+  if (to) params.set('to', to)
+  if (categoryId) params.set('categoryId', String(categoryId))
+  const response = await fetch(`/api/reports/general?${params}`, { headers: authHeaders() })
+  if (response.status === 401) {
+    throw new Error('errors.sessionExpired')
+  }
+  if (!response.ok) {
+    throw new Error('errors.loadFailed')
+  }
+  return response.json()
+}
 export async function fetchGoodsDetail(id) {
   const response = await fetch(`/api/goods/${id}`, { headers: authHeaders() })
   if (response.status === 401) {

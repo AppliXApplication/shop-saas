@@ -80,5 +80,19 @@
     "loadFailed": "Failed to load data",
     "saveFailed": "Failed to save changes",
     "forbidden": "You don't have permission to do this"
+  },
+  "general": {
+    "title": "General reports",
+    "columns": {
+      "name": "Item",
+      "residue": "Stock",
+      "soldQty": "Sold, qty",
+      "receivedQty": "Received, qty",
+      "writtenOffQty": "Written off, qty",
+      "salesSum": "Sales sum",
+      "arrivalSum": "Delivery sum",
+      "writeoffSum": "Write-off sum",
+      "profit": "Profit"
+    }
   }
 }

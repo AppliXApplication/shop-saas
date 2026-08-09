@@ -80,5 +80,19 @@
     "loadFailed": "No se pudieron cargar los datos",
     "saveFailed": "No se pudieron guardar los cambios",
     "forbidden": "No tienes permiso para hacer esto"
+  },
+  "general": {
+    "title": "Informes generales",
+    "columns": {
+      "name": "Producto",
+      "residue": "Existencia",
+      "soldQty": "Vendido, cant.",
+      "receivedQty": "Recibido, cant.",
+      "writtenOffQty": "Dado de baja, cant.",
+      "salesSum": "Suma de ventas",
+      "arrivalSum": "Suma de recepción",
+      "writeoffSum": "Suma de bajas",
+      "profit": "Beneficio"
+    }
   }
 }

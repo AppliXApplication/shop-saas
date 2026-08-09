@@ -82,6 +82,7 @@ export default function CaseRecordPage() {
         </div>
         <div className={styles.headerRight}>
           <Link className={styles.navLink} to="/">{t('cashier.toResidue')}</Link>
+          <Link className={styles.navLink} to="/general">{t('general.title')}</Link>
           <LanguageSwitcher />
           <span className={styles.userInfo}>
             {t('nav.loggedInAs')}: {getRole()}

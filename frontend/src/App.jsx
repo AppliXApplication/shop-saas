@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage'
 import ResiduePage from './pages/ResiduePage'
 import GoodsCardPage from './pages/GoodsCardPage'
 import CaseRecordPage from './pages/CaseRecordPage'
+import GeneralReportPage from './pages/GeneralReportPage'
 import './styles/global.css'
 
 export default function App() {
@@ -13,10 +14,12 @@ export default function App() {
         <Route path="/" element={<ResiduePage />} />
         <Route path="/goods/:id" element={<GoodsCardPage />} />
         <Route path="/cashier" element={<CaseRecordPage />} />
+        <Route path="/general" element={<GeneralReportPage />} />
       </Routes>
     </BrowserRouter>
   )
 }
+
 
 
 
