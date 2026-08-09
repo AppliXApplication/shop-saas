@@ -1,5 +1,6 @@
 package com.applix.shop.cashier;
 
+import com.applix.shop.goods.Goods;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,6 +33,11 @@ public class WriteoffList {
     private Long goodsId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_goods", insertable = false, updatable = false)
+    private Goods goods;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_writeoff", insertable = false, updatable = false)
     private Writeoff writeoff;
 }
+

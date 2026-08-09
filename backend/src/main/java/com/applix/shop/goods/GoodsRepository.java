@@ -27,6 +27,22 @@ public interface GoodsRepository extends JpaRepository<Goods, Long> {
             Pageable pageable
     );
 
+    @Query("""
+            select new com.applix.shop.report.GoodsResidueRow(
+                g.id, g.name, g.code, c.name, g.residue, g.price
+            )
+            from Goods g
+            left join g.category c
+            where g.id in :ids
+              and (:categoryId is null or g.categoryId = :categoryId)
+            order by g.name asc
+            """)
+    Page<GoodsResidueRow> findResidueReportByIds(
+            @Param("ids") java.util.List<Long> ids,
+            @Param("categoryId") Integer categoryId,
+            Pageable pageable
+    );
+
     /**
      * Сумма остатков (кол-во * цена) с учётом фильтра по категории.
      * Считается агрегатом в БД, а не суммированием на фронте по одной странице —

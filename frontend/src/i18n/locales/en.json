@@ -93,6 +93,7 @@
       "arrivalSum": "Delivery sum",
       "writeoffSum": "Write-off sum",
       "profit": "Profit"
-    }
+    },
+    "emptyMovement": "No goods movement for the selected period"
   }
 }

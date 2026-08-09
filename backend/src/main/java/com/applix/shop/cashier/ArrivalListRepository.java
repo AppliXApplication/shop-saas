@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,5 +23,29 @@ public interface ArrivalListRepository extends JpaRepository<ArrivalList, Long> 
             @Param("goodsIds") List<Long> goodsIds,
             @Param("from") LocalDateTime from,
             @Param("to") LocalDateTime to
+    );
+
+    @Query("""
+            select distinct al.goodsId
+            from ArrivalList al
+            where al.arrival.date >= :from and al.arrival.date < :to
+              and (:categoryId is null or al.goods.categoryId = :categoryId)
+            """)
+    List<Long> findDistinctGoodsIds(
+            @Param("from") LocalDateTime from,
+            @Param("to") LocalDateTime to,
+            @Param("categoryId") Integer categoryId
+    );
+
+    @Query("""
+            select coalesce(sum(al.amount * al.price), 0)
+            from ArrivalList al
+            where al.arrival.date >= :from and al.arrival.date < :to
+              and (:categoryId is null or al.goods.categoryId = :categoryId)
+            """)
+    BigDecimal sumArrivalValue(
+            @Param("from") LocalDateTime from,
+            @Param("to") LocalDateTime to,
+            @Param("categoryId") Integer categoryId
     );
 }

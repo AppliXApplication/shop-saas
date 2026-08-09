@@ -93,6 +93,7 @@
       "arrivalSum": "Suma de recepción",
       "writeoffSum": "Suma de bajas",
       "profit": "Beneficio"
-    }
+    },
+    "emptyMovement": "No hubo movimiento de mercancía en el período seleccionado"
   }
 }

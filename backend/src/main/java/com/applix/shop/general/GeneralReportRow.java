@@ -8,10 +8,6 @@ public record GeneralReportRow(
         BigDecimal residue,
         BigDecimal soldQty,
         BigDecimal receivedQty,
-        BigDecimal writtenOffQty,
-        BigDecimal salesSum,
-        BigDecimal arrivalSum,
-        BigDecimal writeoffSum,
-        BigDecimal profit
+        BigDecimal writtenOffQty
 ) {
 }

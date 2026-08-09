@@ -32,6 +32,7 @@ export default function GeneralReportPage() {
 
   const [rows, setRows] = useState(null)
   const [pageInfo, setPageInfo] = useState({ number: 0, totalPages: 0, totalElements: 0 })
+  const [totals, setTotals] = useState(null)
   const [categories, setCategories] = useState([])
   const [error, setError] = useState(null)
 
@@ -61,12 +62,13 @@ export default function GeneralReportPage() {
     const catId = categoryId ? Number(categoryId) : undefined
     fetchGeneralReport(from, to, catId, page, PAGE_SIZE)
       .then((data) => {
-        setRows(data.content)
+        setRows(data.rows.content)
         setPageInfo({
-          number: data.number,
-          totalPages: data.totalPages,
-          totalElements: data.totalElements,
+          number: data.rows.number,
+          totalPages: data.rows.totalPages,
+          totalElements: data.rows.totalElements,
         })
+        setTotals(data.totals)
       })
       .catch((err) => {
         setError(t(err.message))
@@ -136,11 +138,34 @@ export default function GeneralReportPage() {
           </select>
         </div>
 
+        {totals && (
+          <div className={styles.totalsBar}>
+            <div className={styles.totalCell}>
+              <span className={styles.totalLabel}>{t('general.columns.salesSum')}</span>
+              <span className={styles.totalValue}>{totals.salesSum}</span>
+            </div>
+            <div className={styles.totalCell}>
+              <span className={styles.totalLabel}>{t('general.columns.arrivalSum')}</span>
+              <span className={styles.totalValue}>{totals.arrivalSum}</span>
+            </div>
+            <div className={styles.totalCell}>
+              <span className={styles.totalLabel}>{t('general.columns.writeoffSum')}</span>
+              <span className={styles.totalValue}>{totals.writeoffSum}</span>
+            </div>
+            <div className={styles.totalCell}>
+              <span className={styles.totalLabel}>{t('general.columns.profit')}</span>
+              <span className={`${styles.totalValue} ${Number(totals.profit) < 0 ? styles.profitNegative : styles.profitPositive}`}>
+                {totals.profit}
+              </span>
+            </div>
+          </div>
+        )}
+
         <div className={styles.tableWrap}>
           {rows === null && <div className={styles.loading}>{t('residue.loading')}</div>}
 
           {rows !== null && rows.length === 0 && (
-            <div className={styles.empty}>{t('residue.empty')}</div>
+            <div className={styles.empty}>{t('general.emptyMovement')}</div>
           )}
 
           {rows !== null && rows.length > 0 && (
@@ -152,10 +177,6 @@ export default function GeneralReportPage() {
                   <th className={styles.numeric}>{t('general.columns.soldQty')}</th>
                   <th className={styles.numeric}>{t('general.columns.receivedQty')}</th>
                   <th className={styles.numeric}>{t('general.columns.writtenOffQty')}</th>
-                  <th className={styles.numeric}>{t('general.columns.salesSum')}</th>
-                  <th className={styles.numeric}>{t('general.columns.arrivalSum')}</th>
-                  <th className={styles.numeric}>{t('general.columns.writeoffSum')}</th>
-                  <th className={styles.numeric}>{t('general.columns.profit')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -166,12 +187,6 @@ export default function GeneralReportPage() {
                     <td className={`${styles.mono} ${styles.numeric}`}>{row.soldQty}</td>
                     <td className={`${styles.mono} ${styles.numeric}`}>{row.receivedQty}</td>
                     <td className={`${styles.mono} ${styles.numeric}`}>{row.writtenOffQty}</td>
-                    <td className={`${styles.mono} ${styles.numeric}`}>{row.salesSum}</td>
-                    <td className={`${styles.mono} ${styles.numeric}`}>{row.arrivalSum}</td>
-                    <td className={`${styles.mono} ${styles.numeric}`}>{row.writeoffSum}</td>
-                    <td className={`${styles.mono} ${styles.numeric} ${Number(row.profit) < 0 ? styles.profitNegative : styles.profitPositive}`}>
-                      {row.profit}
-                    </td>
                   </tr>
                 ))}
               </tbody>
